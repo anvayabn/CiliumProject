@@ -1,0 +1,18 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "iperfserverpolicy"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: iperf
+      role: server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: iperf
+        type: pod
+        podnum: two
+        suject: network
+  - fromEntities: 
+    - all

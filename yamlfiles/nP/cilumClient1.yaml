@@ -1,0 +1,16 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "iperfclientpolicy"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: iperf
+      type: pod
+      podnum: two 
+      subject: network
+  egress:
+    - toPorts:
+      - ports:
+        - port: "5201"
+          protocol: TCP

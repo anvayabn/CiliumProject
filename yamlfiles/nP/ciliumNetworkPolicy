@@ -1,0 +1,20 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "nerperfpolicy"
+  namespace: default
+spec:
+  endpointSelector:
+    matchLabels:
+      app: netperf
+      role: server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: netperf
+        role: client
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        app: netperf
+        role: client

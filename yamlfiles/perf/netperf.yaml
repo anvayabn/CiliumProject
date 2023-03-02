@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netperf-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netperf
+      role: server
+  template:
+    metadata:
+      labels:
+        app: netperf
+        role: server
+    spec:
+      containers:
+      - name: netperf-server
+        image: networkstatic/netperf
+        command: ["netserver", "-D"]
+        ports:
+        - containerPort: 12865
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netperf-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netperf
+      role: client
+  template:
+    metadata:
+      labels:
+        app: netperf
+        role: client
+    spec:
+      containers:
+      - name: netperf-client
+        image: networkstatic/netperf
+        command: ["sleep", "infinity"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: netperf-service
+  labels:
+    app: netperf
+spec:
+  ports:
+  - name: netperf
+    port: 12865
+    targetPort: 12865
+    protocol: TCP
+  selector:
+    app: netperf
+---
