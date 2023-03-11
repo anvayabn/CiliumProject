@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf
+      role: server
+  template:
+    metadata:
+      labels:
+        app: iperf
+        role: server
+    spec:
+      containers:
+      - name: iperf-server
+        image: networkstatic/iperf3
+        command: ["iperf3", "-s"]
+        ports:
+        - containerPort: 5201
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf
+      role: client
+  template:
+    metadata:
+      labels:
+        app: iperf
+        role: client
+    spec:
+      containers:
+      - name: iperf-client
+        image: networkstatic/iperf3
+        command: ["sleep", "infinity"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iperf-service
+  labels:
+    app: iperf
+spec:
+  ports:
+  - name: iperf
+    port: 5201
+    targetPort: 5201
+    protocol: TCP
+  selector:
+    app: iperf
+---
+
