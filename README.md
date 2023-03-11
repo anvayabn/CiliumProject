@@ -18,3 +18,11 @@ iperf3 -s
 ```
 
 ```
+# Iperf3 Pod to Pod Test 
+
+```
+cd /scripts/iperfPod2Podtest
+chmod 777 testiperfpods.sh
+./testiperfpods.sh 
+
+```
