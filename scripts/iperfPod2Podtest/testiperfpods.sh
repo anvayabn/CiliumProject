@@ -2,7 +2,7 @@
 
 ############# SCRIPT TO MEASURE THROUGHPUT FROM NETPERF PODS ################
 DATE=$(date +"%b_%-d_%H%M%S")
-TIME="500"
+TIME="50"
 echo "length of iperf test:$TIME"
 #SCRIPT="TCP_STREAM"
 #echo "Using Script $SCRIPT"
