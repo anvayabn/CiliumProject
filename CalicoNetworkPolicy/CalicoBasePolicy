@@ -1,0 +1,20 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: calicobasepolicy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: iperf
+      role: server
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            app: iperf
+            role: client
+      - podSelector:
+          matchLabels:
+            key1: value1
+            key2: value2		
