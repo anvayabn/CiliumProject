@@ -2,7 +2,7 @@
 
 ############# SCRIPT TO MEASURE THROUGHPUT FROM NETPERF PODS ################
 DATE=$(date +"%b_%-d_%H%M%S")
-TIME="50"
+TIME="10"
 echo "length of iperf test:$TIME"
 #SCRIPT="TCP_STREAM"
 #echo "Using Script $SCRIPT"
@@ -25,7 +25,16 @@ echo "iperfServer --> $IPERF_SERVER "
 HOSTIP=$(kubectl get pod $IPERF_SERVER -o=jsonpath='{.status.podIP}')
 echo "HostIP --> $HOSTIP"
 echo "$DATE"
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T ciliumpodtest 
+
+for i in {1..5}
+do 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T ciliumpodtestTCP 
+done 
+
+for i in {1..5}
+do 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -T ciliumpodtestUDP 
+done 
 
 echo "###############################################################################"
 echo "###############################################################################"
