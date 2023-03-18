@@ -26,15 +26,19 @@ HOSTIP=$(kubectl get pod $IPERF_SERVER -o=jsonpath='{.status.podIP}')
 echo "HostIP --> $HOSTIP"
 echo "$DATE"
 
-for i in {1..5}
-do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T calicopodtestTCP 
-done 
+################## TCP TEST #################################
 
 for i in {1..5}
 do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -T calicopodtestUDP 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T CiliumpodtestTCP 
 done 
+
+
+################## UDP TEST ###################
+# for i in {1..5}
+# do 
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -T -b 40000000000 CiliumpodtestUDP 
+# done 
 
 echo "###############################################################################"
 echo "###############################################################################"
