@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Request Test</title>
+</head>
+<body>
+    <h1>HTTP Request Test</h1>
+    <form id="testForm" action="/your-endpoint" method="GET">
+        <label for="inputField">Input:</label>
+        <input type="text" id="inputField" name="inputField">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById("testForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var form = event.target;
+            var method = form.method.toUpperCase();
+            var url = form.action;
+            var data = new FormData(form);
+
+            if (method === "GET" || method === "POST") {
+                form.submit();
+            } else {
+                fetch(url, {
+                    method: method,
+                    body: data
+                })
+                .then(response => response.text())
+                .then(result => alert("Request successful: " + result))
+                .catch(error => alert("Error: " + error));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -28,17 +28,17 @@ echo "$DATE"
 
 ################## TCP TEST #################################
 
+# for i in {1..5}
+# do ``
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T CiliumpodtestTCP 
+# done 
+
+
+################# UDP TEST ###################
 for i in {1..5}
 do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T CiliumpodtestTCP 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -b 0 -T CiliumpodtestUDP 
 done 
-
-
-################## UDP TEST ###################
-# for i in {1..5}
-# do 
-# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -T -b 40000000000 CiliumpodtestUDP 
-# done 
 
 echo "###############################################################################"
 echo "###############################################################################"
