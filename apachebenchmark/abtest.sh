@@ -47,21 +47,26 @@ do
     echo "#########################################################################################" >> $DATE"Result".yaml
     echo "#########################################################################################" >> $DATE"Result".yaml
 done
-
-echo "#####################################  Increasing load test   ###############################" >> $DATE"Result".yaml
+for i in {1..5}
+do
+echo "#####################################  Increasing load test $i  ###############################" >> $DATE"Result".yaml
 for concurrency in 1 5 10 25 50 100; do
     echo "Concurrency $concurrency" >> $DATE"Result".yaml
-    kubectl exec -it $PODNAME -- ab -n 1000 -c $concurrency  http://$HOSTIP:80/ >> $DATE"Result".yaml
+    kubectl exec -it $PODNAME -- ab -n 1000 -c $concurrency  http://$HOSTIP:80/ | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
 done     
 echo "#########################################################################################" >> $DATE"Result".yaml
 echo "#########################################################################################" >> $DATE"Result".yaml
 echo "#########################################################################################" >> $DATE"Result".yaml
+done
 
-echo "#####################################  Keep Alive Test  ###############################" >> $DATE"Result".yaml
+for i in {1..5}
+do 
+echo "#####################################  Keep Alive Test  $i ###############################" >> $DATE"Result".yaml
 kubectl exec -it $PODNAME -- ab -n 1000 -c 10 -k http://$HOSTIP:80/ >> $DATE"Result".yaml
 echo "#########################################################################################" >> $DATE"Result".yaml
 echo "#########################################################################################" >> $DATE"Result".yaml
 echo "#########################################################################################" >> $DATE"Result".yaml
+done 
 
 # echo "#####################################  Content-specific test:   ###############################" >> $DATE"Result".yaml
 # kubectl exec -it $PODNAME -- ab -n 1000 -c 10 -c 10 http://$HOSTIP:80/ >> $DATE"Result".yaml
