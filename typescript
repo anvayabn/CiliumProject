@@ -1,0 +1,197 @@
+Script started on 2023-03-19 03:22:36+0000
+]0;an001@masternode: ~/CiliumProject[01;32man001@masternode[00m:[01;34m~/CiliumProject[00m$ ls cd[K[K[K[K[Kls [K[K[Kcd [K[K[Kcd S[Kscripts/
+]0;an001@masternode: ~/CiliumProject/scripts[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts[00m$ ls cd [K[K
+
+ls: cannot access 'c': No such file or directory
+]0;an001@masternode: ~/CiliumProject/scripts[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts[00m$ 
+]0;an001@masternode: ~/CiliumProject/scripts[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts[00m$ ls c[K
+[0m[01;34miperfPod2PodtestCalico[0m  [01;34miperfPod2PodtestCilium[0m  [01;34mtesting[0m
+]0;an001@masternode: ~/CiliumProject/scripts[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts[00m$ cd iperfPod2PodtestCCa[K[Kalico/
+]0;an001@masternode: ~/CiliumProject/scripts/iperfPod2PodtestCalico[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts/iperfPod2PodtestCalico[00m$ ls 
+iperf3.yaml  [0m[01;32mtestiperfpods.sh[0m
+]0;an001@masternode: ~/CiliumProject/scripts/iperfPod2PodtestCalico[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts/iperfPod2PodtestCalico[00m$ tes [Kt [K[K[K[K[K./tws[K[Kesd[Ktiperfpods.sh [K]0;an001@masternode: ~/CiliumProject/scripts/iperfPod2PodtestCalico[01;32man001@masternode[00m:[01;34m~/CiliumProject/scripts/iperfPod2PodtestCalico[00m$ ./testiperfpods.sh 
+length of iperf test:10
+Creating Iperf3 pods for stats
+deployment.apps/iperf-server created
+deployment.apps/iperf-client created
+service/iperf-service created
+Iperf3 pods are created
+kubectl get all | grep iperf3 
+Podname --> iperf-client-7cc8c447c5-g2jtt
+iperfServer --> iperf-server-84679d8f64-gnvbp 
+HostIP --> 192.168.190.219
+Mar_19_032330
+calicopodtestTCP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestTCP:  [  5] local 192.168.190.221 port 36538 connected to 192.168.190.219 port 5201
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+calicopodtestTCP:  [  5]   0.00-1.00   sec  2.03 GBytes  17.5 Gbits/sec   48   1.40 MBytes       
+calicopodtestTCP:  [  5]   1.00-2.00   sec  1.62 GBytes  13.9 Gbits/sec  404    797 KBytes       
+calicopodtestTCP:  [  5]   2.00-3.00   sec  1.94 GBytes  16.7 Gbits/sec    0    882 KBytes       
+calicopodtestTCP:  [  5]   3.00-4.00   sec  1.98 GBytes  17.0 Gbits/sec    2    705 KBytes       
+calicopodtestTCP:  [  5]   4.00-5.00   sec  2.09 GBytes  17.9 Gbits/sec    0    774 KBytes       
+calicopodtestTCP:  [  5]   5.00-6.00   sec  1.55 GBytes  13.3 Gbits/sec    0    885 KBytes       
+calicopodtestTCP:  [  5]   6.00-7.00   sec  1.72 GBytes  14.7 Gbits/sec    0    988 KBytes       
+calicopodtestTCP:  [  5]   7.00-8.00   sec  1.58 GBytes  13.6 Gbits/sec  358    846 KBytes       
+calicopodtestTCP:  [  5]   8.00-9.00   sec  2.03 GBytes  17.4 Gbits/sec    0    904 KBytes       
+calicopodtestTCP:  [  5]   9.00-10.00  sec  2.00 GBytes  17.2 Gbits/sec    0    954 KBytes       
+calicopodtestTCP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr
+calicopodtestTCP:  [  5]   0.00-10.00  sec  18.5 GBytes  15.9 Gbits/sec  812             sender
+calicopodtestTCP:  [  5]   0.00-10.00  sec  18.5 GBytes  15.9 Gbits/sec                  receiver
+calicopodtestTCP:  
+calicopodtestTCP:  iperf Done.
+calicopodtestTCP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestTCP:  [  5] local 192.168.190.221 port 42138 connected to 192.168.190.219 port 5201
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+calicopodtestTCP:  [  5]   0.00-1.00   sec  1.99 GBytes  17.1 Gbits/sec  205    785 KBytes       
+calicopodtestTCP:  [  5]   1.00-2.00   sec  1.87 GBytes  16.1 Gbits/sec   46    722 KBytes       
+calicopodtestTCP:  [  5]   2.00-3.00   sec  1.97 GBytes  16.9 Gbits/sec    0    834 KBytes       
+calicopodtestTCP:  [  5]   3.00-4.00   sec  1.77 GBytes  15.2 Gbits/sec    0    946 KBytes       
+calicopodtestTCP:  [  5]   4.00-5.00   sec  2.08 GBytes  17.8 Gbits/sec    0    957 KBytes       
+calicopodtestTCP:  [  5]   5.00-6.00   sec  1.74 GBytes  15.0 Gbits/sec    0   1.01 MBytes       
+calicopodtestTCP:  [  5]   6.00-7.00   sec  1.77 GBytes  15.2 Gbits/sec  784    609 KBytes       
+calicopodtestTCP:  [  5]   7.00-8.00   sec  1.86 GBytes  16.0 Gbits/sec    0    697 KBytes       
+calicopodtestTCP:  [  5]   8.00-9.00   sec  2.03 GBytes  17.4 Gbits/sec    0    751 KBytes       
+calicopodtestTCP:  [  5]   9.00-10.00  sec  2.05 GBytes  17.6 Gbits/sec    0    812 KBytes       
+calicopodtestTCP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.1 GBytes  16.4 Gbits/sec  1035             sender
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.1 GBytes  16.4 Gbits/sec                  receiver
+calicopodtestTCP:  
+calicopodtestTCP:  iperf Done.
+calicopodtestTCP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestTCP:  [  5] local 192.168.190.221 port 58018 connected to 192.168.190.219 port 5201
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+calicopodtestTCP:  [  5]   0.00-1.00   sec  1.94 GBytes  16.6 Gbits/sec  369   1.98 MBytes       
+calicopodtestTCP:  [  5]   1.00-2.00   sec  1.94 GBytes  16.7 Gbits/sec  334   1.48 MBytes       
+calicopodtestTCP:  [  5]   2.00-3.00   sec  1.86 GBytes  16.0 Gbits/sec  392    846 KBytes       
+calicopodtestTCP:  [  5]   3.00-4.00   sec  2.06 GBytes  17.7 Gbits/sec    0    849 KBytes       
+calicopodtestTCP:  [  5]   4.00-5.00   sec  2.05 GBytes  17.6 Gbits/sec  193    668 KBytes       
+calicopodtestTCP:  [  5]   5.00-6.00   sec  1.83 GBytes  15.7 Gbits/sec   46    659 KBytes       
+calicopodtestTCP:  [  5]   6.00-7.00   sec  1.56 GBytes  13.4 Gbits/sec    0    788 KBytes       
+calicopodtestTCP:  [  5]   7.00-8.00   sec  2.06 GBytes  17.7 Gbits/sec    0    832 KBytes       
+calicopodtestTCP:  [  5]   8.00-9.00   sec  2.04 GBytes  17.5 Gbits/sec    0    865 KBytes       
+calicopodtestTCP:  [  5]   9.00-10.00  sec  1.67 GBytes  14.3 Gbits/sec    0    995 KBytes       
+calicopodtestTCP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.0 GBytes  16.3 Gbits/sec  1334             sender
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.0 GBytes  16.3 Gbits/sec                  receiver
+calicopodtestTCP:  
+calicopodtestTCP:  iperf Done.
+calicopodtestTCP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestTCP:  [  5] local 192.168.190.221 port 44018 connected to 192.168.190.219 port 5201
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+calicopodtestTCP:  [  5]   0.00-1.00   sec  1.93 GBytes  16.5 Gbits/sec  148    661 KBytes       
+calicopodtestTCP:  [  5]   1.00-2.00   sec  2.00 GBytes  17.1 Gbits/sec   46    534 KBytes       
+calicopodtestTCP:  [  5]   2.00-3.00   sec  1.85 GBytes  15.9 Gbits/sec   46    756 KBytes       
+calicopodtestTCP:  [  5]   3.00-4.00   sec  1.99 GBytes  17.1 Gbits/sec  309    653 KBytes       
+calicopodtestTCP:  [  5]   4.00-5.00   sec  2.03 GBytes  17.4 Gbits/sec    0    817 KBytes       
+calicopodtestTCP:  [  5]   5.00-6.00   sec  1.77 GBytes  15.2 Gbits/sec    0    836 KBytes       
+calicopodtestTCP:  [  5]   6.00-7.00   sec  1.65 GBytes  14.2 Gbits/sec    2    789 KBytes       
+calicopodtestTCP:  [  5]   7.00-8.00   sec  1.95 GBytes  16.8 Gbits/sec    0    855 KBytes       
+calicopodtestTCP:  [  5]   8.00-9.00   sec  1.97 GBytes  16.9 Gbits/sec    0    891 KBytes       
+calicopodtestTCP:  [  5]   9.00-10.00  sec  2.07 GBytes  17.8 Gbits/sec    0    938 KBytes       
+calicopodtestTCP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.2 GBytes  16.5 Gbits/sec  551             sender
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.2 GBytes  16.5 Gbits/sec                  receiver
+calicopodtestTCP:  
+calicopodtestTCP:  iperf Done.
+calicopodtestTCP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestTCP:  [  5] local 192.168.190.221 port 35966 connected to 192.168.190.219 port 5201
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+calicopodtestTCP:  [  5]   0.00-1.00   sec  1.98 GBytes  17.0 Gbits/sec    0   2.13 MBytes       
+calicopodtestTCP:  [  5]   1.00-2.00   sec  2.03 GBytes  17.4 Gbits/sec  287   1.19 MBytes       
+calicopodtestTCP:  [  5]   2.00-3.00   sec  1.90 GBytes  16.3 Gbits/sec  445    969 KBytes       
+calicopodtestTCP:  [  5]   3.00-4.00   sec  2.05 GBytes  17.6 Gbits/sec    0   1015 KBytes       
+calicopodtestTCP:  [  5]   4.00-5.00   sec  2.01 GBytes  17.3 Gbits/sec  225    804 KBytes       
+calicopodtestTCP:  [  5]   5.00-6.00   sec  1.71 GBytes  14.7 Gbits/sec  297    675 KBytes       
+calicopodtestTCP:  [  5]   6.00-7.00   sec  1.76 GBytes  15.1 Gbits/sec   46    862 KBytes       
+calicopodtestTCP:  [  5]   7.00-8.00   sec  2.04 GBytes  17.6 Gbits/sec    0    904 KBytes       
+calicopodtestTCP:  [  5]   8.00-9.00   sec  1.98 GBytes  17.0 Gbits/sec    0    971 KBytes       
+calicopodtestTCP:  [  5]   9.00-10.00  sec  1.93 GBytes  16.5 Gbits/sec    0   1.02 MBytes       
+calicopodtestTCP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestTCP:  [ ID] Interval           Transfer     Bitrate         Retr
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.4 GBytes  16.7 Gbits/sec  1300             sender
+calicopodtestTCP:  [  5]   0.00-10.00  sec  19.4 GBytes  16.7 Gbits/sec                  receiver
+calicopodtestTCP:  
+calicopodtestTCP:  iperf Done.
+calicopodtestUDP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestUDP:  [  5] local 192.168.190.221 port 40485 connected to 192.168.190.219 port 5201
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Total Datagrams
+calicopodtestUDP:  [  5]   0.00-1.00   sec  82.8 MBytes   695 Mbits/sec  62578  
+calicopodtestUDP:  [  5]   1.00-2.00   sec  81.5 MBytes   684 Mbits/sec  61593  
+calicopodtestUDP:  [  5]   2.00-3.00   sec  79.4 MBytes   666 Mbits/sec  59960  
+calicopodtestUDP:  [  5]   3.00-4.00   sec  82.0 MBytes   688 Mbits/sec  61935  
+calicopodtestUDP:  [  5]   4.00-5.00   sec  79.9 MBytes   670 Mbits/sec  60348  
+calicopodtestUDP:  [  5]   5.00-6.00   sec  77.7 MBytes   651 Mbits/sec  58729  
+calicopodtestUDP:  [  5]   6.00-7.00   sec  77.5 MBytes   651 Mbits/sec  58526  
+calicopodtestUDP:  [  5]   7.00-8.00   sec  83.2 MBytes   698 Mbits/sec  62820  
+calicopodtestUDP:  [  5]   8.00-9.00   sec  82.2 MBytes   690 Mbits/sec  62116  
+calicopodtestUDP:  [  5]   9.00-10.00  sec  81.6 MBytes   685 Mbits/sec  61679  
+calicopodtestUDP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+calicopodtestUDP:  [  5]   0.00-10.00  sec   808 MBytes   678 Mbits/sec  0.000 ms  0/610284 (0%)  sender
+calicopodtestUDP:  [  5]   0.00-10.00  sec   764 MBytes   641 Mbits/sec  0.003 ms  32778/610284 (5.4%)  receiver
+calicopodtestUDP:  
+calicopodtestUDP:  iperf Done.
+calicopodtestUDP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestUDP:  [  5] local 192.168.190.221 port 45399 connected to 192.168.190.219 port 5201
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Total Datagrams
+calicopodtestUDP:  [  5]   0.00-1.00   sec  85.5 MBytes   718 Mbits/sec  64625  
+calicopodtestUDP:  [  5]   1.00-2.00   sec  80.9 MBytes   679 Mbits/sec  61131  
+calicopodtestUDP:  [  5]   2.00-3.00   sec  83.0 MBytes   696 Mbits/sec  62705  
+calicopodtestUDP:  [  5]   3.00-4.00   sec  83.1 MBytes   697 Mbits/sec  62788  
+calicopodtestUDP:  [  5]   4.00-5.00   sec  79.4 MBytes   666 Mbits/sec  59975  
+calicopodtestUDP:  [  5]   5.00-6.00   sec  75.6 MBytes   634 Mbits/sec  57084  
+calicopodtestUDP:  [  5]   6.00-7.00   sec  85.0 MBytes   713 Mbits/sec  64188  
+calicopodtestUDP:  [  5]   7.00-8.00   sec  83.4 MBytes   700 Mbits/sec  63013  
+calicopodtestUDP:  [  5]   8.00-9.00   sec  83.0 MBytes   696 Mbits/sec  62678  
+calicopodtestUDP:  [  5]   9.00-10.00  sec  81.6 MBytes   684 Mbits/sec  61628  
+calicopodtestUDP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+calicopodtestUDP:  [  5]   0.00-10.00  sec   820 MBytes   688 Mbits/sec  0.000 ms  0/619815 (0%)  sender
+calicopodtestUDP:  [  5]   0.00-10.00  sec   751 MBytes   630 Mbits/sec  0.006 ms  52791/619815 (8.5%)  receiver
+calicopodtestUDP:  
+calicopodtestUDP:  iperf Done.
+calicopodtestUDP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestUDP:  [  5] local 192.168.190.221 port 59536 connected to 192.168.190.219 port 5201
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Total Datagrams
+calicopodtestUDP:  [  5]   0.00-1.00   sec  81.9 MBytes   687 Mbits/sec  61841  
+calicopodtestUDP:  [  5]   1.00-2.00   sec  81.9 MBytes   686 Mbits/sec  61898  
+calicopodtestUDP:  [  5]   2.00-3.00   sec  81.3 MBytes   683 Mbits/sec  61446  
+calicopodtestUDP:  [  5]   3.00-4.00   sec  83.2 MBytes   698 Mbits/sec  62884  
+calicopodtestUDP:  [  5]   4.00-5.00   sec  82.7 MBytes   694 Mbits/sec  62472  
+calicopodtestUDP:  [  5]   5.00-6.00   sec  74.0 MBytes   621 Mbits/sec  55902  
+calicopodtestUDP:  [  5]   6.00-7.00   sec  81.2 MBytes   682 Mbits/sec  61377  
+calicopodtestUDP:  [  5]   7.00-8.00   sec  79.2 MBytes   664 Mbits/sec  59819  
+calicopodtestUDP:  [  5]   8.00-9.00   sec  81.9 MBytes   687 Mbits/sec  61856  
+calicopodtestUDP:  [  5]   9.00-10.00  sec  80.9 MBytes   679 Mbits/sec  61115  
+calicopodtestUDP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+calicopodtestUDP:  [  5]   0.00-10.00  sec   808 MBytes   678 Mbits/sec  0.000 ms  0/610610 (0%)  sender
+calicopodtestUDP:  [  5]   0.00-10.00  sec   765 MBytes   642 Mbits/sec  0.006 ms  32801/610610 (5.4%)  receiver
+calicopodtestUDP:  
+calicopodtestUDP:  iperf Done.
+calicopodtestUDP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestUDP:  [  5] local 192.168.190.221 port 41093 connected to 192.168.190.219 port 5201
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Total Datagrams
+calicopodtestUDP:  [  5]   0.00-1.00   sec  80.3 MBytes   673 Mbits/sec  60649  
+calicopodtestUDP:  [  5]   1.00-2.00   sec  80.4 MBytes   675 Mbits/sec  60747  
+calicopodtestUDP:  [  5]   2.00-3.00   sec  81.6 MBytes   684 Mbits/sec  61639  
+calicopodtestUDP:  [  5]   3.00-4.00   sec  84.6 MBytes   709 Mbits/sec  63882  
+calicopodtestUDP:  [  5]   4.00-5.00   sec  81.5 MBytes   683 Mbits/sec  61540  
+calicopodtestUDP:  [  5]   5.00-6.00   sec  71.3 MBytes   598 Mbits/sec  53851  
+calicopodtestUDP:  [  5]   6.00-7.00   sec  82.1 MBytes   689 Mbits/sec  62041  
+calicopodtestUDP:  [  5]   7.00-8.00   sec  81.4 MBytes   683 Mbits/sec  61471  
+calicopodtestUDP:  [  5]   8.00-9.00   sec  81.5 MBytes   684 Mbits/sec  61589  
+calicopodtestUDP:  [  5]   9.00-10.00  sec  81.6 MBytes   684 Mbits/sec  61642  
+calicopodtestUDP:  - - - - - - - - - - - - - - - - - - - - - - - - -
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+calicopodtestUDP:  [  5]   0.00-10.00  sec   806 MBytes   676 Mbits/sec  0.000 ms  0/609051 (0%)  sender
+calicopodtestUDP:  [  5]   0.00-10.00  sec   762 MBytes   639 Mbits/sec  0.002 ms  33505/609051 (5.5%)  receiver
+calicopodtestUDP:  
+calicopodtestUDP:  iperf Done.
+calicopodtestUDP:  Connecting to host 192.168.190.219, port 5201
+calicopodtestUDP:  [  5] local 192.168.190.221 port 35466 connected to 192.168.190.219 port 5201
+calicopodtestUDP:  [ ID] Interval           Transfer     Bitrate         Tota

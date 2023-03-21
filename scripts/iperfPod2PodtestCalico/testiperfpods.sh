@@ -1,6 +1,6 @@
 #!/bin/bash
 
-############# SCRIPT TO MEASURE THROUGHPUT FROM NETPERF PODS ################
+############# SCRIPT TO MEASURE THROUGHPUT FROM IPERF PODS ################
 DATE=$(date +"%b_%-d_%H%M%S")
 TIME="10"
 echo "length of iperf test:$TIME"
@@ -26,15 +26,21 @@ HOSTIP=$(kubectl get pod $IPERF_SERVER -o=jsonpath='{.status.podIP}')
 echo "HostIP --> $HOSTIP"
 echo "$DATE"
 
+#################### TCP TEST 
+# for i in {1..5}
+# do 
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -f g -T calicopodtestTCP 
+# done 
+
+
+##################### UDP TEST 
 for i in {1..5}
 do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T ciliumpodtestTCP 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -u -b 9000000 -T calicopodtestUDP 
 done 
 
-for i in {1..5}
-do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -T ciliumpodtestUDP 
-done 
+#################### Single UDP test ##############
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -b 9000000 -T calicopodtestUDP 
 
 echo "###############################################################################"
 echo "###############################################################################"
