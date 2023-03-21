@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: apache-benchmark-pod
+  labels:
+    app: apache
+    role: client
 spec:
   containers:
   - name: ab-container

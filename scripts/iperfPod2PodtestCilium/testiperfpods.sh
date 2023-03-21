@@ -27,18 +27,29 @@ echo "HostIP --> $HOSTIP"
 echo "$DATE"
 
 ################## TCP TEST #################################
-
-# for i in {1..5}
-# do ``
-# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -f g -T CiliumpodtestTCP 
+# for j in { 1000 2000 5000 10000 20000 30000 40000 }
+# do  
+#     echo "$j"
+#     /home/an001/CiliumProject/CiliumNetoworkPolicy/CiliumpolicygeneratorLabel.sh $j
+#     wait 
+#     for i in {1..5}
+#     do 
+#     kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -f g -T CiliumpodtestTCP 
+#     sleep 2
+# done  
 # done 
-
-
-################# UDP TEST ###################
 for i in {1..5}
 do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -b 0 -T CiliumpodtestUDP 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -f g -T CiliumpodtestTCP 
+sleep 2
 done 
+
+
+# ################# UDP TEST ###################
+# for i in {1..5}
+# do 
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -b 0 -T CiliumpodtestUDP 
+# done 
 
 echo "###############################################################################"
 echo "###############################################################################"
