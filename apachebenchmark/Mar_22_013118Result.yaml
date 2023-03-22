@@ -1,0 +1,80 @@
+#####################################  Simple request test 1   ###############################
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       999.025 [ms] (mean)
+Time per request:       999.025 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1002.401 [ms] (mean)
+Time per request:       1002.401 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1001.107 [ms] (mean)
+Time per request:       1001.107 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#####################################  Simple request test 2   ###############################
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1003.067 [ms] (mean)
+Time per request:       1003.067 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1001.554 [ms] (mean)
+Time per request:       1001.554 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1001.163 [ms] (mean)
+Time per request:       1001.163 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#####################################  Simple request test 3   ###############################
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       997.851 [ms] (mean)
+Time per request:       997.851 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1003.026 [ms] (mean)
+Time per request:       1003.026 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1002.504 [ms] (mean)
+Time per request:       1002.504 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#####################################  Simple request test 4   ###############################
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1000.984 [ms] (mean)
+Time per request:       1000.984 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1003.430 [ms] (mean)
+Time per request:       1003.430 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1002.456 [ms] (mean)
+Time per request:       1002.456 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#####################################  Simple request test 5   ###############################
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       996.863 [ms] (mean)
+Time per request:       996.863 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.01 [#/sec] (mean)
+Time per request:       993.822 [ms] (mean)
+Time per request:       993.822 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+Requests per second:    1.00 [#/sec] (mean)
+Time per request:       1001.797 [ms] (mean)
+Time per request:       1001.797 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.10 [Kbytes/sec] received
+#########################################################################################
+#########################################################################################
+#########################################################################################

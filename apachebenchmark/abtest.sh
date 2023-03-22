@@ -18,55 +18,45 @@ HOSTIP=$(kubectl get pod $NGINX -o=jsonpath='{.status.podIP}')
 echo "HostIP --> $HOSTIP"
 echo "$DATE"
 
-# #RANDOM URL GENERATOR 
-# length=10
-# # Generate a random string
-# random_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $length | head -n 1)
-# # Define the URL components
-# protocol="http"
-# domain="example.com"
-# path="path"
-# # Assemble the random URL
-# random_url="${protocol}://$HOSTIP:80/${random_string}.html"
-# # Print the random URL
-# echo $random_url
 for i in {1..5}
 do 
     echo "#####################################  Simple request test $i   ###############################" >> $DATE"Result".yaml
-    kubectl exec -it $PODNAME -- ab -n 1 -c 1 http://$HOSTIP:80/ >> $DATE"Result".yaml
+    kubectl exec -it $PODNAME -- ab -n 1 -c 1 -i http://$HOSTIP:80/ | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
+    kubectl exec -it $PODNAME -- ab -n 1 -c 1 -i http://$HOSTIP:80/get.html | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
+    kubectl exec -it $PODNAME -- ab -n 1 -c 1 -i http://$HOSTIP:80/post.html | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
     echo "#########################################################################################" >> $DATE"Result".yaml
     echo "#########################################################################################" >> $DATE"Result".yaml
     echo "#########################################################################################" >> $DATE"Result".yaml
 done 
 
-for i in {1..5}
-do 
-    echo "#####################################  Concurrency test  $i ###############################" >> $DATE"Result".yaml
-    kubectl exec -it $PODNAME -- ab -n 1000 -c 10 http://$HOSTIP:80/ >> $DATE"Result".yaml
-    echo "#########################################################################################" >> $DATE"Result".yaml
-    echo "#########################################################################################" >> $DATE"Result".yaml
-    echo "#########################################################################################" >> $DATE"Result".yaml
-done
-for i in {1..5}
-do
-echo "#####################################  Increasing load test $i  ###############################" >> $DATE"Result".yaml
-for concurrency in 1 5 10 25 50 100; do
-    echo "Concurrency $concurrency" >> $DATE"Result".yaml
-    kubectl exec -it $PODNAME -- ab -n 1000 -c $concurrency  http://$HOSTIP:80/ | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
-done     
-echo "#########################################################################################" >> $DATE"Result".yaml
-echo "#########################################################################################" >> $DATE"Result".yaml
-echo "#########################################################################################" >> $DATE"Result".yaml
-done
+# for i in {1..5}
+# do 
+#     echo "#####################################  Concurrency test  $i ###############################" >> $DATE"Result".yaml
+#     kubectl exec -it $PODNAME -- ab -n 1000 -c 10 http://$HOSTIP:80/ >> $DATE"Result".yaml
+#     echo "#########################################################################################" >> $DATE"Result".yaml
+#     echo "#########################################################################################" >> $DATE"Result".yaml
+#     echo "#########################################################################################" >> $DATE"Result".yaml
+# done
+# for i in {1..5}
+# do
+# echo "#####################################  Increasing load test $i  ###############################" >> $DATE"Result".yaml
+# for concurrency in 1 5 10 25 50 100; do
+#     echo "Concurrency $concurrency" >> $DATE"Result".yaml
+#     kubectl exec -it $PODNAME -- ab -n 1000 -c $concurrency  http://$HOSTIP:80/ | grep -E 'Transfer rate|Time per request|Requests per second' >> $DATE"Result".yaml
+# done     
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# done
 
-for i in {1..5}
-do 
-echo "#####################################  Keep Alive Test  $i ###############################" >> $DATE"Result".yaml
-kubectl exec -it $PODNAME -- ab -n 1000 -c 10 -k http://$HOSTIP:80/ >> $DATE"Result".yaml
-echo "#########################################################################################" >> $DATE"Result".yaml
-echo "#########################################################################################" >> $DATE"Result".yaml
-echo "#########################################################################################" >> $DATE"Result".yaml
-done 
+# for i in {1..5}
+# do 
+# echo "#####################################  Keep Alive Test  $i ###############################" >> $DATE"Result".yaml
+# kubectl exec -it $PODNAME -- ab -n 1000 -c 10 -k http://$HOSTIP:80/ >> $DATE"Result".yaml
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# echo "#########################################################################################" >> $DATE"Result".yaml
+# done 
 
 # echo "#####################################  Content-specific test:   ###############################" >> $DATE"Result".yaml
 # kubectl exec -it $PODNAME -- ab -n 1000 -c 10 -c 10 http://$HOSTIP:80/ >> $DATE"Result".yaml

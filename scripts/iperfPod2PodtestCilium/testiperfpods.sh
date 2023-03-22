@@ -38,18 +38,18 @@ echo "$DATE"
 #     sleep 2
 # done  
 # done 
-for i in {1..5}
-do 
-kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -f g -T CiliumpodtestTCP 
-sleep 2
-done 
+# for i in {1..5}
+# do 
+# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -V -t $TIME -f g -T CiliumpodtestTCP 
+# sleep 2
+# done 
 
 
 # ################# UDP TEST ###################
-# for i in {1..5}
-# do 
-# kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -u -b 0 -T CiliumpodtestUDP 
-# done 
+for i in {1..3}
+do 
+kubectl exec -it $PODNAME -- iperf3 -c $HOSTIP -A 0,1 -t $TIME -V -u -b 1G -f g  -T CiliumpodtestUDP 
+done 
 
 echo "###############################################################################"
 echo "###############################################################################"
