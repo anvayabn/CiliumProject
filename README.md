@@ -32,17 +32,17 @@ chmod 777 testiperfpods.sh
 ```
 cd CiliumNetoworkPolicy 
 chmod +x CiliumpolicygeneratorLabel.sh CiliumpolicygeneratorLabell7.sh
-
-To generate label based policy 
-
+```
+## To generate label based policy 
+```
 ./CiliumpolicygeneratorLabel.sh <number of Policies>
-
-E.g. 
-
+```
+## E.g. 
+```
 ./CiliumpolicygeneratorLabel.sh 1000 
-
-To generate http rule/policies 
-
+```
+## To generate http rule/policies 
+```
 ./CiliumpolicygeneratorLabell7.sh 10000
 
 ```
@@ -63,13 +63,18 @@ chmod +x CalicopolicygeneratorLabels.sh
  ```
  cd ./CiliumProject/scripts/
  
-For Cilium CNI 
+ ```
+ 
+## For Cilium CNI 
 
+```
 cd ./CiliumProject/scripts/iperfPod2PodtestCilium/
 
 ./testiperfpods.sh 
+```
+## For Calico CNI 
 
-For Calico CNI 
+```
 
 cd ./CiliumProject/scripts/iperfPod2PodtestCalico/
 
@@ -81,21 +86,7 @@ cd ./CiliumProject/scripts/iperfPod2PodtestCalico/
 # For ab testing 
  
 ``` 
-
 cd ./CiliumProject/apachebenchmark/
 
 ./abtest.sh 
-
 ```
-
-
-
-
-
-
-
- 
-
-```
-
-
