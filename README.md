@@ -1,5 +1,6 @@
 # CiliumProject
-Characteristic Analysis of Cilium 
+
+Performance of analysis of Cilium (ebpf based CNI) and Calico (standard  networking - kube-proxy) with respect to number of Layer 3/4 Layer 7 policies. 
 
 # Environment Setup
 
@@ -18,7 +19,7 @@ iperf3 -s
 iperf -c localhost -V -A 0,1 -t 10 -T iperfbaselinetest
 ```
 
-```
+
 # Iperf3 Pod to Pod Test 
 
 ```
@@ -74,7 +75,7 @@ cd ./CiliumProject/scripts/iperfPod2PodtestCalico/
 
 ./testiperfpods.sh
 
-
+```
 
 
 # For ab testing 
