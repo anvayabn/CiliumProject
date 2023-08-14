@@ -2,6 +2,10 @@
 
 Performance of analysis of Cilium (ebpf based CNI) and Calico (standard  networking - kube-proxy) with respect to number of Layer 3/4 Layer 7 policies. 
 
+
+# Layer 3/4 Policy Test TCP Throughput 
+
+![Layer 3/4 Policy Test TCP Throughput ](Layer3_4_policy_test.png)
 # Environment Setup
 
 To Setup a Kubernetes Environment use the following github repo and follow the steps accordingly 
