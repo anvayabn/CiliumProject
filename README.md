@@ -7,6 +7,15 @@ Performance of analysis of Cilium (ebpf based CNI) and Calico (standard  network
 
 ![Layer 3/4 Policy Test TCP Throughput ](Layer3_4_policy_test.png)
 # Environment Setup
+-- Setup the VMs on GCP using terraform
+```
+cd terraform-gcp
+vi terraform.tfvars
+#add your variables to the file
+#Validate and apply
+terraform validate
+terraform apply 
+```
 
 To Setup a Kubernetes Environment use the following github repo and follow the steps accordingly 
 
